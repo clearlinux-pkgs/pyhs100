@@ -4,10 +4,10 @@
 #
 Name     : pyhs100
 Version  : 0.3.4
-Release  : 6
+Release  : 7
 URL      : https://github.com/GadgetReactor/pyHS100/archive/0.3.4.tar.gz
 Source0  : https://github.com/GadgetReactor/pyHS100/archive/0.3.4.tar.gz
-Summary  : No detailed summary available
+Summary  : Interface for TPLink HS1xx plugs, HS2xx wall switches & LB1xx bulbs
 Group    : Development/Tools
 License  : GPL-3.0
 Requires: pyhs100-bin = %{version}-%{release}
@@ -64,6 +64,7 @@ python components for the pyhs100 package.
 Summary: python3 components for the pyhs100 package.
 Group: Default
 Requires: python3-core
+Provides: pypi(pyHS100)
 
 %description python3
 python3 components for the pyhs100 package.
@@ -71,20 +72,28 @@ python3 components for the pyhs100 package.
 
 %prep
 %setup -q -n pyHS100-0.3.4
+cd %{_builddir}/pyHS100-0.3.4
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1547736776
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1583207124
+# -Werror is for werrorists
+export GCC_IGNORE_WERROR=1
+export CFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$CFLAGS -fno-lto "
+export FFLAGS="$CFLAGS -fno-lto "
+export CXXFLAGS="$CXXFLAGS -fno-lto "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
 
 %install
+export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/pyhs100
-cp LICENSE %{buildroot}/usr/share/package-licenses/pyhs100/LICENSE
+cp %{_builddir}/pyHS100-0.3.4/LICENSE %{buildroot}/usr/share/package-licenses/pyhs100/647dfc73c4f7e28c4857992b89ec2fbd53ade364
 python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
@@ -99,7 +108,7 @@ echo ----[ mark ]----
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/pyhs100/LICENSE
+/usr/share/package-licenses/pyhs100/647dfc73c4f7e28c4857992b89ec2fbd53ade364
 
 %files python
 %defattr(-,root,root,-)
