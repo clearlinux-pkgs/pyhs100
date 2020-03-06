@@ -4,7 +4,7 @@
 #
 Name     : pyhs100
 Version  : 0.3.4
-Release  : 7
+Release  : 8
 URL      : https://github.com/GadgetReactor/pyHS100/archive/0.3.4.tar.gz
 Source0  : https://github.com/GadgetReactor/pyHS100/archive/0.3.4.tar.gz
 Summary  : Interface for TPLink HS1xx plugs, HS2xx wall switches & LB1xx bulbs
@@ -64,7 +64,10 @@ python components for the pyhs100 package.
 Summary: python3 components for the pyhs100 package.
 Group: Default
 Requires: python3-core
-Provides: pypi(pyHS100)
+Provides: pypi(pyhs100)
+Requires: pypi(click)
+Requires: pypi(click_datetime)
+Requires: pypi(typing)
 
 %description python3
 python3 components for the pyhs100 package.
@@ -79,8 +82,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1583207124
-# -Werror is for werrorists
+export SOURCE_DATE_EPOCH=1583520424
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$CFLAGS -fno-lto "
