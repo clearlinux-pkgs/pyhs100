@@ -4,7 +4,7 @@
 #
 Name     : pyhs100
 Version  : 0.3.5
-Release  : 10
+Release  : 11
 URL      : https://files.pythonhosted.org/packages/a5/e3/4f95f6b73fa3cf50be81ca9331a8598f46d296e836558b361991a26b9644/pyHS100-0.3.5.tar.gz
 Source0  : https://files.pythonhosted.org/packages/a5/e3/4f95f6b73fa3cf50be81ca9331a8598f46d296e836558b361991a26b9644/pyHS100-0.3.5.tar.gz
 Summary  : Interface for TPLink HS1xx plugs, HS2xx wall switches & LB1xx bulbs
@@ -15,11 +15,9 @@ Requires: pyhs100-python = %{version}-%{release}
 Requires: pyhs100-python3 = %{version}-%{release}
 Requires: click
 Requires: click-datetime
-Requires: typing
 BuildRequires : buildreq-distutils3
 BuildRequires : click
 BuildRequires : click-datetime
-BuildRequires : typing
 Patch1: no-typing.patch
 
 %description
@@ -68,7 +66,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1588285126
+export SOURCE_DATE_EPOCH=1588285410
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
