@@ -4,7 +4,7 @@
 #
 Name     : pyhs100
 Version  : 0.3.5.2
-Release  : 23
+Release  : 24
 URL      : https://files.pythonhosted.org/packages/00/a2/18543b5f4233dcb7616b73aa6ba48944bf36cf578d5860370c754bc619ed/pyHS100-0.3.5.2.tar.gz
 Source0  : https://files.pythonhosted.org/packages/00/a2/18543b5f4233dcb7616b73aa6ba48944bf36cf578d5860370c754bc619ed/pyHS100-0.3.5.2.tar.gz
 Summary  : Interface for TPLink HS1xx plugs, HS2xx wall switches & LB1xx bulbs
